@@ -22,4 +22,16 @@ Usage:
     ResourceMigrator.exe /path/to/pcl/resource/dir /my-android-app/resources/values/ /my-touch-app/resources
 
     // generate resources with a custom namespace  
-    ResourceMigrator.exe /path/to/pcl/resource/dir /my-android-app/resources/values/ /my-touch-app/resources MyApp.Custom.Namespace
+    ResourceMigrator.exe /path/to/pcl/resource/dir /my-android-app/resources/values/ /my-touch-app/resources MyApp.Custom.Touch.Namespace
+
+Here's an example of our Powershell build script (using PSAKE)
+
+    $defaultResourcePath = Join-Path $rootDir "FutureState.AppCore\Properties\"
+    $androidResourcePath = Join-Path $rootDir "FutureState.BreathingRoom.Droid.Ui\Resources\Values\"
+    $touchOutputPath =     Join-Path $rootDir "FutureState.BreathingRoom.Touch.Ui\Resources\"
+    $migratorPath =        Join-Path $rootDir "build\ResourceMigrator.exe"
+    $customUIColorNamespace = "FutureState.BreathingRoom.Touch.Ui.Resources"
+    
+    task MigrateResources -Description "Generates Android & iOS Resources from the AppCore Resource.resx file" {
+        & $migratorPath $defaultResourcePath $androidResourcePath $touchOutputPath $customUIColorNamespace
+    }

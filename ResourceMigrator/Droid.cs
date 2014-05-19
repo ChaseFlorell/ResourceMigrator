@@ -6,6 +6,7 @@ namespace ResourceMigrator
 {
     public static class Droid 
     {
+        // originally taken from http://stackoverflow.com/a/16987412/124069
         public static void WriteToTarget(FileSystemInfo sourceFile, string targetDir, Dictionary<string, string> strings)
         {
             var resourceType = sourceFile.GetResourceType();
