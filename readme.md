@@ -19,8 +19,7 @@ IE:
 Usage:
 
     // generate resources by in default namespace  
-    ResourceMigrator.exe /path/to/pcl/resource/dir /my-android-app/resources/values/ 
-/my-touch-app/resources
+    ResourceMigrator.exe /path/to/pcl/resource/dir /my-android-app/resources/values/ /my-touch-app/resources
 
     // generate resources with a custom namespace  
     ResourceMigrator.exe /path/to/pcl/resource/dir /my-android-app/resources/values/ /my-touch-app/resources MyApp.Custom.Namespace
