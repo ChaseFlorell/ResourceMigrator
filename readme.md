@@ -1,10 +1,10 @@
-Cross platform way to migrate PCL Resources over to Android Resources
+Cross platform way to migrate PCL Resources over to Android & iOS Resources
 
-Put all of your resources in a PCL *.resx file, and run this with your build. It will automatically 
-generate your *.xml resource file for android, and a CustomUIColor.cs class for iOS (other iOS 
+Put all of your resources in your PCL as a `*.resx` file, and then run this with your build. It will automatically 
+generate your `*.xml` resource file for android, as well as a `CustomUIColor.cs` class for iOS (more iOS 
 support to come).
 
-note: start your file name with the type of resource you're generating
+*note: if you start your file name with the type of resource you're generating, it will automatically generate specific resources. Otherwise it will assume `strings`.*
 
 IE:
  
@@ -26,12 +26,12 @@ Usage:
 
 Here's an example of our Powershell build script (using PSAKE)
 
-    $defaultResourcePath = Join-Path $rootDir "FutureState.AppCore\Properties\"
-    $androidResourcePath = Join-Path $rootDir "FutureState.BreathingRoom.Droid.Ui\Resources\Values\"
-    $touchOutputPath =     Join-Path $rootDir "FutureState.BreathingRoom.Touch.Ui\Resources\"
-    $migratorPath =        Join-Path $rootDir "build\ResourceMigrator.exe"
+    $migratorPath =           Join-Path $rootDir "build\ResourceMigrator.exe"
+    $defaultResourcePath =    Join-Path $rootDir "FutureState.AppCore\Properties\"
+    $androidOutputPath =      Join-Path $rootDir "FutureState.BreathingRoom.Droid.Ui\Resources\Values\"
+    $touchOutputPath =        Join-Path $rootDir "FutureState.BreathingRoom.Touch.Ui\Resources\"
     $customUIColorNamespace = "FutureState.BreathingRoom.Touch.Ui.Resources"
     
     task MigrateResources -Description "Generates Android & iOS Resources from the AppCore Resource.resx file" {
-        & $migratorPath $defaultResourcePath $androidResourcePath $touchOutputPath $customUIColorNamespace
+        & $migratorPath $defaultResourcePath $androidOutputPath $touchOutputPath $customUIColorNamespace
     }
