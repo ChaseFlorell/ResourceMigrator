@@ -5,7 +5,7 @@ Cross platform way to migrate PCL Resources over to Android and iOS. I built thi
 Put all of your resources in `*.resx` files in your Portable Class Libraries (PCL's), and run this with your build.  
 
 It will automatically 
-generate your `*.xml` resource file for android, and a `CustomUIColor.cs` class for iOS (more iOS 
+generate your `*.xml` resource file for Android, and a `CustomUIColor.cs` class for iOS (more iOS 
 support to come).
 
 *note: if start your file name with the type of resource you're generating, it will generate the appropriate resource for Android automatically*
