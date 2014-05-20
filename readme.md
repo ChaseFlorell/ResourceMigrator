@@ -8,7 +8,7 @@ It will automatically
 generate your `*.xml` resource file for Android, and a `CustomUIColor.cs` class for iOS (more iOS 
 support to come).
 
-*note: if start your file name with the type of resource you're generating, it will generate the appropriate resource for Android automatically*
+*note: if you start your file name with the type of resource you're generating, it will generate the appropriate resource for Android automatically*
 
 example:
  
@@ -23,3 +23,9 @@ example:
 usage:
 
     ResourceMigrator.exe /path/to/solution
+
+todo:
+
+ - Automatically update csproj file with any newly created files if it's not already in there.
+ - Automatically create the appropriate directory if it doesn't exist.
+ - Add more iOS support as the need arises.
