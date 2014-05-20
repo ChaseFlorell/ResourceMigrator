@@ -74,7 +74,7 @@ namespace " + _touchNameSpace + @"
                         return MonoTouch.UIKit.UIColor.FromRGBA(red, green, blue, alpha);
                     }
                 default:
-                    throw new ArgumentOutOfRangeException(string.Format(""Invalid color value {0} is invalid. It should be a hex value of the form #RBG, #RRGGBB"", hexValue));
+                    throw new ArgumentOutOfRangeException(string.Format(""Invalid color value {0} is invalid. It should be a hex value of the form #RBG, #RRGGBB, or #AARRGGBB"", hexValue));
 
             }
         }
