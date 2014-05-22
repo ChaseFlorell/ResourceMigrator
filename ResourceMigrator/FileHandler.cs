@@ -37,15 +37,15 @@ namespace ResourceMigrator
 
                     if (attrVal.Contains("MonoTouch"))
                     {
-                        projects.Add(new ProjectModel { ProjectNamespace = proj.ProjectName, ProjectPath = projectPath, PlatformType = PlatformType.Touch });
+                        projects.Add(new ProjectModel {ProjectNamespace = proj.ProjectName, ProjectPath = projectPath, PlatformType = PlatformType.Touch});
                     }
                     else if (attrVal.Contains("Android"))
                     {
-                        projects.Add(new ProjectModel { ProjectNamespace = proj.ProjectName, ProjectPath = projectPath, PlatformType = PlatformType.Droid });
+                        projects.Add(new ProjectModel {ProjectNamespace = proj.ProjectName, ProjectPath = projectPath, PlatformType = PlatformType.Droid});
                     }
                     else if (attrVal.Contains("Portable"))
                     {
-                        projects.Add(new ProjectModel { ProjectNamespace = proj.ProjectName, ProjectPath = projectPath, PlatformType = PlatformType.Pcl });
+                        projects.Add(new ProjectModel {ProjectNamespace = proj.ProjectName, ProjectPath = projectPath, PlatformType = PlatformType.Pcl});
                     }
                 }
             }

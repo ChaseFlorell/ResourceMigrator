@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ResourceMigrator
 {
-    public static class Droid 
+    public static class Droid
     {
         // originally taken from http://stackoverflow.com/a/16987412/124069
         public static void WriteToTarget(FileSystemInfo sourceFile, string targetDir, Dictionary<string, string> strings)
@@ -37,6 +37,6 @@ namespace ResourceMigrator
 
             var outputFileName = Path.GetFileNameWithoutExtension(sourceFile.Name) + ".xml";
             File.WriteAllText(Path.Combine(targetDir, outputFileName), builder.ToString());
-        } 
+        }
     }
 }

@@ -19,9 +19,9 @@ namespace ResourceMigrator
             var droidTuple = projects.FirstOrDefault(p => p.PlatformType == PlatformType.Droid);
             var pclTuple = projects.FirstOrDefault(p => p.PlatformType == PlatformType.Pcl);
 
-            if(pclTuple ==null) throw new Exception("Your resource files must be located in a PCL.");
+            if (pclTuple == null) throw new Exception("Your resource files must be located in a PCL.");
             var resourceFiles = FileHandler.GetAllResourceFiles(pclTuple.ProjectPath);
-            
+
             foreach (var file in resourceFiles)
             {
                 var fileInfo = new FileInfo(file);
@@ -34,13 +34,11 @@ namespace ResourceMigrator
                 }
 
                 // create the iOS resources
-                if(touchTuple != null)
+                if (touchTuple != null)
                 {
                     Touch.WriteToTarget(fileInfo, Path.Combine(touchTuple.ProjectPath, "resources/"), resources, touchTuple.ProjectNamespace + ".Resources");
                 }
             }
         }
     }
-
-
 }
