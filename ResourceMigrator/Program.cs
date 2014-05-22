@@ -15,12 +15,14 @@ namespace ResourceMigrator
             var solution = FileHandler.GetSolutionFromPath(solutionPath);
             var projects = FileHandler.GetProjects(solution, solutionPath);
 
-            var touchTuple = projects.FirstOrDefault(p => p.PlatformType == PlatformType.Touch);
-            var droidTuple = projects.FirstOrDefault(p => p.PlatformType == PlatformType.Droid);
-            var pclTuple = projects.FirstOrDefault(p => p.PlatformType == PlatformType.Pcl);
+            var pcl = projects.FirstOrDefault(p => p.PlatformType == PlatformType.Pcl);
+            if (pcl == null) throw new Exception("Your resource files must be located in a PCL.");
 
-            if (pclTuple == null) throw new Exception("Your resource files must be located in a PCL.");
-            var resourceFiles = FileHandler.GetAllResourceFiles(pclTuple.ProjectPath);
+            var phone = projects.FirstOrDefault(p => p.PlatformType == PlatformType.Phone);
+            var touch = projects.FirstOrDefault(p => p.PlatformType == PlatformType.Touch);
+            var droid = projects.FirstOrDefault(p => p.PlatformType == PlatformType.Droid);
+
+            var resourceFiles = FileHandler.GetAllResourceFiles(pcl.ProjectPath);
 
             foreach (var file in resourceFiles)
             {
@@ -28,15 +30,21 @@ namespace ResourceMigrator
                 var resources = fileInfo.LoadResources();
 
                 // create the Android resources
-                if (droidTuple != null)
+                if (droid != null)
                 {
-                    Droid.WriteToTarget(fileInfo, Path.Combine(droidTuple.ProjectPath, "resources/values/"), resources);
+                    Droid.WriteToTarget(fileInfo, Path.Combine(droid.ProjectPath, "resources/values/"), resources);
                 }
 
                 // create the iOS resources
-                if (touchTuple != null)
+                if (touch != null)
                 {
-                    Touch.WriteToTarget(fileInfo, Path.Combine(touchTuple.ProjectPath, "resources/"), resources, touchTuple.ProjectNamespace + ".Resources");
+                    Touch.WriteToTarget(fileInfo, Path.Combine(touch.ProjectPath, "resources/"), resources, touch.ProjectNamespace + ".Resources");
+                }
+
+                // create the Windows Phone resources
+                if (touch != null)
+                {
+                    // Phone.WriteToTarget(fileInfo, Path.Combine(touch.ProjectPath, "resources/"), resources);
                 }
             }
         }
