@@ -55,7 +55,14 @@ namespace ResourceMigrator
             foreach (var proj in solution.Projects)
             {
                 var xmldoc = new XmlDocument();
-                xmldoc.Load(Path.Combine(solutionPath, proj.RelativePath));
+                try
+                {
+                    xmldoc.Load(Path.Combine(solutionPath, proj.RelativePath));
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
 
                 var mgr = new XmlNamespaceManager(xmldoc.NameTable);
                 mgr.AddNamespace("x", "http://schemas.microsoft.com/developer/msbuild/2003");
