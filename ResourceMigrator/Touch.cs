@@ -4,17 +4,17 @@ using System.Text;
 
 namespace ResourceMigrator
 {
-    public static class Touch
+    public class Touch : IDeviceHandler
     {
         private static string _targetDir;
-        private static Dictionary<string, string> _strings;
+        private static IDictionary<string, string> _strings;
         private static string _touchNameSpace;
-
-        public static void WriteToTarget(FileInfo sourceFile, string targetDir, Dictionary<string, string> strings, string touchNameSpace)
+        
+        public void WriteToTarget(ProjectModel project, IDictionary<string, string> strings, FileInfo sourceFile)
         {
-            _targetDir = targetDir;
+            _targetDir = Path.Combine(project.ProjectPath, "resources/");
             _strings = strings;
-            _touchNameSpace = touchNameSpace;
+            _touchNameSpace = project.ProjectNamespace + ".Resources";
 
             var resourceType = sourceFile.GetResourceType();
             if (resourceType == "color")

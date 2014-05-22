@@ -4,11 +4,13 @@ using System.Text;
 
 namespace ResourceMigrator
 {
-    public static class Droid
+    public class Droid : IDeviceHandler
     {
         // originally taken from http://stackoverflow.com/a/16987412/124069
-        public static void WriteToTarget(FileSystemInfo sourceFile, string targetDir, Dictionary<string, string> strings)
+
+        public void WriteToTarget(ProjectModel project, IDictionary<string, string> strings, FileInfo sourceFile)
         {
+            var targetDir = Path.Combine(project.ProjectPath, "resources/values/");
             var resourceType = sourceFile.GetResourceType();
             var builder = new StringBuilder();
 

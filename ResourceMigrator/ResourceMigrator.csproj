@@ -45,6 +45,7 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="FileHandler.cs" />
     <Compile Include="Helpers.cs" />
+    <Compile Include="IDeviceHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

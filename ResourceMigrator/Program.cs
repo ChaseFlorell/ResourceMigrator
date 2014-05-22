@@ -32,19 +32,19 @@ namespace ResourceMigrator
                 // create the Android resources
                 if (droid != null)
                 {
-                    Droid.WriteToTarget(fileInfo, Path.Combine(droid.ProjectPath, "resources/values/"), resources);
+                    new Droid().WriteToTarget(droid, resources, fileInfo);
                 }
 
                 // create the iOS resources
                 if (touch != null)
                 {
-                    Touch.WriteToTarget(fileInfo, Path.Combine(touch.ProjectPath, "resources/"), resources, touch.ProjectNamespace + ".Resources");
+                    new Touch().WriteToTarget(touch, resources, fileInfo);
                 }
 
                 // create the Windows Phone resources
                 if (phone != null)
                 {
-                    // Phone.WriteToTarget(fileInfo, Path.Combine(touch.ProjectPath, "resources/"), resources);
+                    // new Phone().WriteToTarget(phone, resources, fileInfo);
                 }
             }
         }
