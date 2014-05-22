@@ -16,17 +16,39 @@ namespace ResourceMigrator
             {
                 switch (c)
                 {
-                    case '\'': literal.Append(@"\'"); break;
-                    case '\"': literal.Append("\\\""); break;
-                    case '\\': literal.Append(@"\\"); break;
-                    case '\0': literal.Append(@"\0"); break;
-                    case '\a': literal.Append(@"\a"); break;
-                    case '\b': literal.Append(@"\b"); break;
-                    case '\f': literal.Append(@"\f"); break;
-                    case '\n': literal.Append(@"\n"); break;
-                    case '\r': literal.Append(@"\r"); break;
-                    case '\t': literal.Append(@"\t"); break;
-                    case '\v': literal.Append(@"\v"); break;
+                    case '\'':
+                        literal.Append(@"\'");
+                        break;
+                    case '\"':
+                        literal.Append("\\\"");
+                        break;
+                    case '\\':
+                        literal.Append(@"\\");
+                        break;
+                    case '\0':
+                        literal.Append(@"\0");
+                        break;
+                    case '\a':
+                        literal.Append(@"\a");
+                        break;
+                    case '\b':
+                        literal.Append(@"\b");
+                        break;
+                    case '\f':
+                        literal.Append(@"\f");
+                        break;
+                    case '\n':
+                        literal.Append(@"\n");
+                        break;
+                    case '\r':
+                        literal.Append(@"\r");
+                        break;
+                    case '\t':
+                        literal.Append(@"\t");
+                        break;
+                    case '\v':
+                        literal.Append(@"\v");
+                        break;
                     default:
                         if (Char.GetUnicodeCategory(c) != UnicodeCategory.Control)
                         {
@@ -35,7 +57,7 @@ namespace ResourceMigrator
                         else
                         {
                             literal.Append(@"\u");
-                            literal.Append(((ushort)c).ToString("x4"));
+                            literal.Append(((ushort) c).ToString("x4"));
                         }
                         break;
                 }
@@ -72,15 +94,15 @@ namespace ResourceMigrator
                 case "col":
                     return "color";
                 case "boo":
-                   return "bool";
+                    return "bool";
                 case "dim":
-                   return "dimen";
+                    return "dimen";
                 case "ite":
-                   return "item";
+                    return "item";
                 case "int":
-                   return "integer";
+                    return "integer";
                 default:
-                   return "string";
+                    return "string";
             }
         }
     }

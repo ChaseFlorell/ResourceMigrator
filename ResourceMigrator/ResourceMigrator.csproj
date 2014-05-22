@@ -43,8 +43,10 @@
   <ItemGroup>
     <Compile Include="Droid.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="FileHandler.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolutionParser.cs" />
     <Compile Include="Touch.cs" />

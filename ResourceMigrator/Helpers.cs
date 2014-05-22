@@ -6,7 +6,7 @@ namespace ResourceMigrator
     {
         public static string GetAssemblyVersion()
         {
-            return Assembly.GetAssembly(typeof(Program)).GetName().Version.ToString();
-        } 
+            return Assembly.GetAssembly(typeof (Program)).GetName().Version.ToString();
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace ResourceMigrator
                 Type.GetType("Microsoft.Build.Construction.SolutionParser, Microsoft.Build, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
                              false, false);
             if (MsSolutionParser == null) return;
-            
+
             SolutionParserSolutionReader = MsSolutionParser.GetProperty("SolutionReader", BindingFlags.NonPublic | BindingFlags.Instance);
             SolutionParserProjects = MsSolutionParser.GetProperty("Projects", BindingFlags.NonPublic | BindingFlags.Instance);
             SolutionParserParseSolution = MsSolutionParser.GetMethod("ParseSolution", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -67,7 +67,7 @@ namespace ResourceMigrator
                     "Microsoft.Build.Construction.ProjectInSolution, Microsoft.Build, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", false,
                     false);
             if (MsProjectInSolution == null) return;
-            
+
             MsProjectName = MsProjectInSolution.GetProperty("ProjectName", BindingFlags.NonPublic | BindingFlags.Instance);
             MsRelativePath = MsProjectInSolution.GetProperty("RelativePath", BindingFlags.NonPublic | BindingFlags.Instance);
             MsProjectGuid = MsProjectInSolution.GetProperty("ProjectGuid", BindingFlags.NonPublic | BindingFlags.Instance);
