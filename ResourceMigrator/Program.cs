@@ -42,7 +42,7 @@ namespace ResourceMigrator
                 }
 
                 // create the Windows Phone resources
-                if (touch != null)
+                if (phone != null)
                 {
                     // Phone.WriteToTarget(fileInfo, Path.Combine(touch.ProjectPath, "resources/"), resources);
                 }
